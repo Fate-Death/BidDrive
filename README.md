@@ -72,14 +72,5 @@ sudo mariadb -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
 - **Seller Protection**: Sellers cannot bid on their own listings.
 - **JWT Protection**: Sensitive endpoints require valid authentication tokens.
 - **Validation**: Strict server-side validation for bid amounts and auction statuses.
-
----
-
-## 🚀 Future Roadmap
-- [ ] Real-time WebSocket notifications for new bids.
-- [ ] Multi-image support for car listings.
-- [ ] Advanced search filters (location, mileage, fuel type).
-- [ ] Payment integration for finalized auctions.
-
 ---
 
