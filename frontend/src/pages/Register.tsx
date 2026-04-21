@@ -32,7 +32,7 @@ const Register: React.FC = () => {
       <div className="auth-card">
         <div className="auth-logo">
           <Car size={28} color="var(--primary)" />
-          AuctionCar
+          BidDrive
         </div>
 
         <h1 className="auth-title">Create an account</h1>

@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
       <div className="navbar-inner">
         <Link to="/" className="navbar-brand">
           <Car size={26} className="navbar-brand-icon" />
-          AuctionCar
+          BidDrive
         </Link>
 
         <div className="navbar-links">

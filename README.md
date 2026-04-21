@@ -1,45 +1,60 @@
-# 🚗 Used Car Auction Web Application
+# 🚗 BidDrive — Premium Used Car Auction Platform
 
-A full-stack web application built with Spring Boot (Java), React (TypeScript), and MySQL.
+BidDrive is a high-performance, full-stack web application designed for seamless used car auctions. It features a modern, responsive UI, robust security with JWT, and a scalable Spring Boot backend.
 
-## 🚀 Features
+---
 
-*   **User Authentication**: Secure registration and login using JWT.
-*   **Car Listings**: Browse available cars, add new listings for auction.
-*   **Bidding System**: Place real-time bids on cars.
-*   **Dashboard**: Visualize auction trends with charts.
-*   **Responsive Design**: Simple and clean UI.
+## ✨ Key Features
+
+*   **Live Bidding**: Place bids on your favorite cars with real-time validation.
+*   **Auction Management**: Sellers can list cars, track bids, and close auctions.
+*   **User Dashboard**: Track your listings and bidding history in one place.
+*   **Premium Design**: Token-based design system with glassmorphism and smooth animations.
+*   **Secure Auth**: JWT-based authentication for secure access.
+*   **Data Visualization**: Price trend charts for top listings using Recharts.
 
 ---
 
 ## 🛠️ Tech Stack
 
-*   **Backend**: Spring Boot, Spring Security, JPA/Hibernate, MySQL.
+*   **Backend**: Spring Boot (Java), Spring Security, Spring Data JPA, JWT.
+*   **Database**: MariaDB / MySQL.
 *   **Frontend**: React, TypeScript, Vite, Axios, Lucide-React, Recharts.
 
 ---
 
-## 🚦 How to Run
+## 🚦 Getting Started
 
 ### 1. Prerequisites
 *   Java 17 or higher
 *   Node.js & npm
-*   MySQL Server
+*   MariaDB / MySQL Server
 
-### 2. Backend Setup
+### 2. Database Setup (Arch Linux / MariaDB)
+If you are using MariaDB on Arch Linux, follow these steps to initialize:
+```bash
+# 1. Install
+sudo pacman -S mariadb
+# 2. Initialize
+sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+# 3. Start service
+sudo systemctl start mariadb
+# 4. Set root password
+sudo mariadb -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'password'; FLUSH PRIVILEGES;"
+```
+
+### 3. Backend Setup
 1.  Navigate to the `backend` folder.
-2.  Update `src/main/resources/application.properties` with your MySQL credentials:
-    ```properties
-    spring.datasource.url=jdbc:mysql://localhost:3306/auction_db?createDatabaseIfNotExist=true
-    spring.datasource.username=YOUR_USERNAME
-    spring.datasource.password=YOUR_PASSWORD
-    ```
+2.  The `application.properties` is already configured for the default MariaDB setup:
+    - **DB Name**: `auction_db` (created automatically)
+    - **User**: `root`
+    - **Password**: `password`
 3.  Run the application:
     ```bash
     mvn spring-boot:run
     ```
 
-### 3. Frontend Setup
+### 4. Frontend Setup
 1.  Navigate to the `frontend` folder.
 2.  Install dependencies:
     ```bash
@@ -53,15 +68,18 @@ A full-stack web application built with Spring Boot (Java), React (TypeScript), 
 
 ---
 
-## 📂 Project Structure
-
-*   `backend/`: Spring Boot application.
-*   `frontend/`: React + Vite application.
-*   `database/`: (Optional) SQL scripts or docker-compose.
+## 🔒 Security Features
+- **Seller Protection**: Sellers cannot bid on their own listings.
+- **JWT Protection**: Sensitive endpoints require valid authentication tokens.
+- **Validation**: Strict server-side validation for bid amounts and auction statuses.
 
 ---
 
-## ⚠️ Notes for Beginners
-*   **Security**: This project uses a simplified JWT implementation for learning purposes.
-*   **Database**: Ensure MySQL is running before starting the backend.
-*   **API**: The frontend communicates with the backend at `http://localhost:8080/api`.
+## 🚀 Future Roadmap
+- [ ] Real-time WebSocket notifications for new bids.
+- [ ] Multi-image support for car listings.
+- [ ] Advanced search filters (location, mileage, fuel type).
+- [ ] Payment integration for finalized auctions.
+
+---
+
